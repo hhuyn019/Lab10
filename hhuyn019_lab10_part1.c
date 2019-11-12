@@ -62,105 +62,105 @@ int main(void)
 void ThreeLEDsSM() {
 	switch(ThreeLEDsSM_State) {
 		case BEGIN:
-		ThreeLEDsSM_State = LED1;
-		break;
+			ThreeLEDsSM_State = LED1;
+			break;
 		case LED1:
-		if(ms < 1000) {
-			ThreeLEDsSM_State = LED1;
-			ms = ms + 1;
-			break;
+			if(ms < 1000) {
+				ThreeLEDsSM_State = LED1;
+				ms = ms + 1;
+				break;
 			} else {
-			ThreeLEDsSM_State = LED2;
-			ms = 0;
-			break;
-		}
+				ThreeLEDsSM_State = LED2;
+				ms = 0;
+				break;
+			}
 		case LED2:
-		if(ms < 1000) {
-			ThreeLEDsSM_State = LED2;
-			ms = ms + 1;
-			break;
+			if(ms < 1000) {
+				ThreeLEDsSM_State = LED2;
+				ms = ms + 1;
+				break;
 			} else {
-			ThreeLEDsSM_State = LED3;
-			ms = 0;
-			break;
-		}
+				ThreeLEDsSM_State = LED3;
+				ms = 0;
+				break;
+			}
 		case LED3:
-		if(ms < 1000) {
-			ThreeLEDsSM_State = LED3;
-			ms = ms + 1;
-			break;
+			if(ms < 1000) {
+				ThreeLEDsSM_State = LED3;
+				ms = ms + 1;
+				break;
 			} else {
-			ThreeLEDsSM_State = LED1;
-			ms = 0;
-			break;
-		}
+				ThreeLEDsSM_State = LED1;
+				ms = 0;
+				break;
+			}
 	}
 	switch(ThreeLEDsSM_State) {
 		case BEGIN:
-		break;
+			break;
 		case LED1:
-		threeLEDs = 0x01;
-		break;
+			threeLEDs = 0x01;
+			break;
 		case LED2:
-		threeLEDs = 0x02;
-		break;
+			threeLEDs = 0x02;
+			break;
 		case LED3:
-		threeLEDs = 0x04;
-		break;
+			threeLEDs = 0x04;
+			break;
 	}
 }
 
 void BlinkingLEDSM() {
 	switch(BlinkingLEDSM_State) {
 		case BEGIN2:
-		BlinkingLEDSM_State = LED_ON;
-		break;
+			BlinkingLEDSM_State = LED_ON;
+			break;
 		case LED_ON:
-		if(ms2 < 1000) {
-			BlinkingLEDSM_State = LED_ON;
-			ms2 = ms2 + 1;
-			break;
+			if(ms2 < 1000) {
+				BlinkingLEDSM_State = LED_ON;
+				ms2 = ms2 + 1;
+				break;
 			} else {
-			BlinkingLEDSM_State = LED_OFF;
-			ms2 = 0;
-			break;
-		}
+				BlinkingLEDSM_State = LED_OFF;
+				ms2 = 0;
+				break;
+			}
 		case LED_OFF:
-		if(ms2 < 1000) {
-			BlinkingLEDSM_State = LED_OFF;
-			ms2 = ms2 + 1;
-			break;
+			if(ms2 < 1000) {
+				BlinkingLEDSM_State = LED_OFF;
+				ms2 = ms2 + 1;
+				break;
 			} else {
-			BlinkingLEDSM_State = LED_ON;
-			ms2 = 0;
-			break;
-		}
+				BlinkingLEDSM_State = LED_ON;
+				ms2 = 0;
+				break;
+			}
 	}
 	switch(BlinkingLEDSM_State) {
 		case BEGIN2:
-		break;
+			break;
 		case LED_ON:
-		blinkingLED = 0x08;
-		break;
+			blinkingLED = 0x08;
+			break;
 		case LED_OFF:
-		blinkingLED = 0x00;
-		break;
+			blinkingLED = 0x00;
+			break;
 	}
 }
 
 void CombineLEDsSM() {
 	switch(CombineLEDsSM_State) {
 		case BEGIN3:
-		CombineLEDsSM_State = COMBINE;
-		break;
+			CombineLEDsSM_State = COMBINE;
+			break;
 		case COMBINE:
-		break;
+			break;
 	}
 	switch(CombineLEDsSM_State) {
 		case BEGIN3:
-		break;
+			break;
 		case COMBINE:
-		PORTC = threeLEDs | blinkingLED;
-		break;
+			PORTC = threeLEDs | blinkingLED;
+			break;
 	}
 }
